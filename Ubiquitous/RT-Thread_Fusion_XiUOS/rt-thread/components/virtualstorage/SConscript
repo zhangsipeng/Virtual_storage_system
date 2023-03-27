@@ -1,0 +1,14 @@
+Import('RTT_ROOT')
+from building import *
+
+cwd = GetCurrentDir()
+src = Split("""
+virtualstorage.c
+""")
+
+# The set of source files associated with this SConscript file.
+path = [cwd]
+
+group = DefineGroup('Virtualstorage', src, depend = ['RT_USING_SDIO'], CPPPATH = path)
+
+Return('group')
